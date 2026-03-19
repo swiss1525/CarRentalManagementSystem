@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarRentalSystem.Domain.Exceptions
+namespace CarRentalSystem.Domain.Exceptions.Vehicle
 {
-    internal class DomainException : Exception
+    internal class VehicleNotAvailableException
     {
-        
     }
 }

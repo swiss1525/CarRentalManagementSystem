@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarRentalSystem.Domain.Exceptions
+namespace CarRentalSystem.Domain.Exceptions.Rental
 {
-    internal class DomainException : Exception
+    internal class InvalidReturnDateException
     {
-        
     }
 }
