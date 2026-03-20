@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace CarRentalSystem.Domain.Exceptions.Customer
 {
-    internal class UnderageCustomerException : Exception
+    internal class InvalidInformationException : Exception
     {
-        public UnderageCustomerException(string message) :base(message) { }
+        public InvalidInformationException(string message) : base(message) { }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CarRentalSystem.Domain.Entities
 {
-    internal class Rental
+    public class Rental
     {
     }
 }

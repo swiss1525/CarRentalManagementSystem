@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace CarRentalSystem.Domain.Enums
 {
-    internal class RentalStatus
+    public enum RentalStatus
     {
+        Active,
+        Completed
     }
 }
