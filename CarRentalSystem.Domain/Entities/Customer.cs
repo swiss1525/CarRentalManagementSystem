@@ -19,7 +19,7 @@ namespace CarRentalSystem.Domain.Entities
         public Customer(string name, DateTime dateOfBirth, string email, string driverLicense)
         {
             ValidateName(name);
-            ValidateAge(age);
+            ValidateAge(dateOfBirth);
             ValidateEmail(email);
             ValidateDriverLicense(driverLicense);
 

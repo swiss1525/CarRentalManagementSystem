@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace CarRentalSystem.Domain.Exceptions.Rental
 {
-    internal class InvalidReturnDateException
+    internal class InvalidReturnDateException : Exception
     {
+        public InvalidReturnDateException(string message) :base(message)
+        {
+
+        }
     }
 }
