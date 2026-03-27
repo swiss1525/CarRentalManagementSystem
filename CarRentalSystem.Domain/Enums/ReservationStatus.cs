@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace CarRentalSystem.Domain.Enums
 {
-    internal class ReservationStatus
+    public enum ReservationStatus
     {
+       Pending,
+       Confirmed,
+       Cancelled,
+       Completed
     }
 }

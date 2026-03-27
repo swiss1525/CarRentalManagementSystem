@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CarRentalSystem.Domain.Exceptions;
-using CarRentalSystem.Domain.Enums;
-
+﻿using CarRentalSystem.Domain.Enums;
 using CarRentalSystem.Domain.Exceptions.Vehicle;
 
 namespace CarRentalSystem.Domain.Entities
@@ -17,20 +10,25 @@ namespace CarRentalSystem.Domain.Entities
         public Guid ID { get; private set; }
         public int YearOfMake { get; private set; }
         public VehicleStatus Status { get; private set; }
+        public VehicleCategory Category { get; private set; }
         public double PricePerDay { get; private set; }
-        public List<Rental> Rentals { get; private set; }
+        public decimal DailyRate { get; private set; }
+        public List<Rental> Rentals { get; private set; } = new();
 
-        public Vehicle(string brand, string model, int yearOfMake, VehicleStatus status, double pricePerDay)
+        public Vehicle(string brand, string model, VehicleCategory category, int yearOfMake, VehicleStatus status, double pricePerDay)
         {
             ValidateBrand(brand);
             ValidateModel(model);
             ValidateYear(yearOfMake);
             ValidatePrice(pricePerDay);
+            ValidateCategory(category);
             MarkAsAvailable();
 
+            ID = Guid.NewGuid();
             Brand = brand;
             Model = model;
-            ID = Guid.NewGuid();
+            Category = category;
+            SetDailyRate(category);
             YearOfMake = yearOfMake;
             PricePerDay = pricePerDay;
         }
@@ -82,6 +80,36 @@ namespace CarRentalSystem.Domain.Entities
         {
             if (price <= 0)
                 throw new InvalidVehicleInformationException("Price per day must be greater than 0.");
+        }
+
+        private void ValidateCategory(VehicleCategory category)
+        {
+            if (category != VehicleCategory.Economy && category != VehicleCategory.Sedan && category != VehicleCategory.SUV && category != VehicleCategory.Luxury)
+            {
+                throw new InvalidVehicleInformationException("Invalid vehicle category.");
+            }
+        }
+
+        private decimal SetDailyRate(VehicleCategory category)
+        {
+            decimal dailyRate = 0;
+            if (category == VehicleCategory.Luxury)
+            {
+                dailyRate = 110m;
+            }
+            if (category == VehicleCategory.SUV)
+            {
+                dailyRate = 95.5m;
+            }
+            if (category == VehicleCategory.Sedan)
+            {
+                dailyRate = 65.5m;
+            }
+            if (category == VehicleCategory.Economy)
+            {
+                dailyRate = 50m;
+            }
+            return dailyRate;
         }
 
     }

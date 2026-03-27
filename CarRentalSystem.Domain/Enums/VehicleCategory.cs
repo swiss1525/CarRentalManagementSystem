@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarRentalSystem.Domain.Entities
+namespace CarRentalSystem.Domain.Enums
 {
-    internal class VehicleCategory
+    public enum VehicleCategory
     {
+        Economy,
+        Sedan,
+        SUV,
+        Luxury
     }
 }

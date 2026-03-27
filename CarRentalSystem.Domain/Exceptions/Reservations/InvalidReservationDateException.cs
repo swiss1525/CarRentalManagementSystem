@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace CarRentalSystem.Domain.Exceptions.Reservations
 {
-    internal class InvalidReservationDateException
+    public class InvalidReservationDateException : Exception
     {
+        public InvalidReservationDateException(string message) :base(message) { }
     }
 }

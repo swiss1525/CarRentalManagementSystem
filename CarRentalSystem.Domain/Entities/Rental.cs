@@ -39,5 +39,15 @@ namespace CarRentalSystem.Domain.Entities
                 throw new InvalidReturnDateException("Expected return date must be after pickup date.");
             }
         }
+
+        public void UpdateRentalStatus(RentalStatus status)
+        {
+            if (status != RentalStatus.Active || status != RentalStatus.Completed)
+            {
+                throw new InvalidUpdateStatus("Invalid update status.");
+            }
+
+            Status = status;
+        }
     }
 }

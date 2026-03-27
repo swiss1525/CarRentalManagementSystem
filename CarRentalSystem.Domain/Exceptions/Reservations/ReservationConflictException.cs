@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace CarRentalSystem.Domain.Exceptions.Reservations
 {
-    internal class ReservationConflictException
+    internal class ReservationConflictException : Exception
     {
+        public ReservationConflictException(string message) :base(message) { }
     }
 }
